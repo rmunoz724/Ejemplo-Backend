@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'ejemplocrud',
         'HOST' : 'localhost',
         'PORT' : '3306',
-        'USER' : 'root',
+        'USER' : 'Ejemplos',
         'PASSWORD' : ''
     }
 }
