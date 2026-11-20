@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <title>
+        ¿Confirmar eliminación?
+    </title>
+    <body>
+        <h1>
+            ¿Eliminar?
+        </h1>
+        <h2>¿Desea eliminar a {{persona.nombre}} del sistema?</h2>
+        <form action="{% url 'ConfirmaEliminar' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="rut" value="{{ persona.rut }}" />
+            <button type="submit" >Eliminar</button>
+        </form>
+        <a href="/listar">Cancelar</a>
+    </body>
+</html>

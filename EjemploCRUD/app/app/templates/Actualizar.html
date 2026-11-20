@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>
+            Actualizar persona
+        </title>
+    </head>
+    <body>
+        <h1>Actualizar Persona</h1>
+        <h3>rut: {{persona.rut}}</h3>
+        <form action="{{% url 'ActualizarPersona' %}}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="rut" value="{{ persona.rut }}" />
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" value="{{persona.nombre}}"/>
+            <br/><br/>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" value="{{persona.apellidos}}"/>
+            <br/><br/>
+            <label for="direccion">Direccion:</label>
+            <input type="text" name="direccion" value="{{persona.direccion}}"/>
+            <br/><br/>
+            <label for="correo">Correo Electronico:</label>
+            <input type="text" name="correo" value="{{persona.correo_electronico}}"/>
+            <br/><br/>
+            <label for="fecha_nacimiento">Fecha Nacimento:</label>
+            <input type="text" name="fecha_nacimiento" value="{{persona.fecha_nacimiento}}"/>
+            <br/><br/>
+            <button type="submit">Actualizar</button>
+            <button type="button" onclick="location.href='../listar'">Cancelar</button>
+            
+        </form>
+    </body>
+</html>

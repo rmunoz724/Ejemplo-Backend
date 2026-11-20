@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+       <title>
+        Lista de personas
+       </title> 
+    </head>
+    <body>
+        {% if request.user.is_authenticated %}
+        <div style="text-align: right;">Bienvenido {{request.user.first_name}} {{request.user.last_name}}
+            <a href="{% url 'Logout' %}">Cerrar sesión</a>
+        </div>
+        {% else %}
+        <div style="text-align: right;">Sesion no iniciada {{request.user.first_name}}
+            <a href="{% url 'IniciarSesion' %}">Iniciar sesión</a>
+        </div>
+        {% endif %}
+
+        <h1>Lista de personas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>Rut</td>
+                    <td>Nombre</td>
+                    <td>Apellidos</td>
+                    <td>Direccion</td>
+                    <td>Correo Electrónico</td>
+                    <td>Fecha Nacimiento</td>
+                    {% if request.user.is_authenticated %}
+                    <td>Acciones</td>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for persona in personas %}
+                <tr>
+                    <td>{{persona.rut}}</td>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellidos}}</td>
+                    <td>{{persona.direccion}}</td>
+                    <td>{{persona.correo_electronico}}</td>
+                    <td>{{persona.fecha_nacimiento}}</td>
+                    {% if request.user.is_authenticated %}
+                    <td><a href="../eliminar?rut={{persona.rut}}">Eliminar</a> || <a href="../actualizar?rut={{persona.rut}}">Actualizar</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

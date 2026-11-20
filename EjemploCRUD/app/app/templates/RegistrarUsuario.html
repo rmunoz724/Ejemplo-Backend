@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>
+            Resgistar usuario
+        </title>
+    </head>
+    <body>
+        <h1>Registro de usuario</h1>
+        <form action="{% url 'RegistrarUsuario' %}" method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre de Usuario:</label>
+            <input type="text" name="nombre" placeholder="Ingrese nombre de usuario">
+            <br>
+            <label for="passwrd">Contraseña:</label>
+            <input type="passwrd" name="passwrd" placeholder="Ingrese contraseña">
+            <br>
+            <label for="passwrd2">Contraseña:</label>
+            <input type="passwrd" name="passwrd2" placeholder="Repita contraseña">
+            <br>
+            <button type="submit">Resgistar</button>
+            <button type="button" onclick="location.href='../listar'">Cancelar</button>
+        </form>
+        <a style="color: red;">
+            {{mensaje}}
+        </a>
+    </body>
+</html>

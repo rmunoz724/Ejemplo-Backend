@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>
+            Iniciar Sesión
+        </title>
+    </head>
+    <body>
+        <h1>Registro de usuario</h1>
+        <form action="{% url 'IniciarSesion' %}" method="post">
+            {% csrf_token %}
+            <label for="nombre">Nombre de Usuario:</label>
+            <input type="text" name="nombre" placeholder="Ingrese nombre de usuario">
+            <br>
+            <label for="passwrd">Contraseña:</label>
+            <input type="passwrd" name="passwrd" placeholder="Ingrese contraseña">
+            <br>
+            <button type="submit">Iniciar Sesión</button>
+            <button type="button" onclick="location.href='../listar'">Cancelar</button>
+        </form>
+        <a style="color: red;">
+            {{mensaje}}
+        </a>
+    </body>
+</html>
